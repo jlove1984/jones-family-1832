@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "figma-n4a7bv-16": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.composio.dev/partner/composio/figma/mcp?customerId=0774cfae-16b2-4319-a89e-23aeb2d8e5e1&agent=claude"
+      ],
+      "env": {
+        "npm_config_yes": "true"
+      }
+    },
+    "figma-605dcr-13": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "<https://mcp.composio.dev/partner/composio/figma/mcp?customerId=><customer_id>"
+      ],
+      "env": {
+        "npm_config_yes": "true"
+      }
+    }
+  }
+}

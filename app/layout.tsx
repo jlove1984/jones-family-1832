@@ -1,0 +1,55 @@
+import type { Metadata } from 'next'
+import { Playfair_Display, Inter } from 'next/font/google'
+import { ThemeProvider } from '@/components/providers/theme-provider'
+import { Header } from '@/components/layout/header'
+import { Footer } from '@/components/layout/footer'
+import './globals.css'
+
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  weight: ['400', '600', '700'],
+  display: 'swap',
+})
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+})
+
+export const metadata: Metadata = {
+  title: {
+    default: 'Jones Family Hub - Connecting Family Since 1832',
+    template: '%s | Jones Family Hub',
+  },
+  description: 'Official website of the Jones Family. Discover our heritage, celebrate achievements, and stay connected with family events.',
+  keywords: ['Jones Family', 'Family Reunion', 'Family Heritage', 'Genealogy'],
+  authors: [{ name: 'Jones Family Reunion Committee' }],
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${playfair.variable} ${inter.variable} font-body antialiased bg-off-white dark:bg-rich-black text-charcoal dark:text-light-text`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </ThemeProvider>
+      </body>
+    </html>
+  )
+}

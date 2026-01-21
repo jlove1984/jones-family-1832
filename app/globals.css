@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  /* Primary Colors */
+  --heritage-green: #2D5016;
+  --heritage-green-light: #4A8028;
+  --legacy-gold: #C19A6B;
+  --legacy-gold-bright: #D4B896;
+  --family-burgundy: #6B2E2E;
+  --family-burgundy-light: #9B4545;
+  
+  /* Secondary Colors */
+  --sage: #8BA888;
+  --sage-muted: #6B9A68;
+  --cream: #F5F1E8;
+  --dark-cream: #2A2823;
+  --terracotta: #B85C38;
+  --terracotta-soft: #C97C5D;
+  
+  /* Neutral Colors - Light */
+  --charcoal: #2C2C2C;
+  --slate-gray: #5A5A5A;
+  --light-gray: #D4D4D4;
+  --off-white: #FAFAFA;
+  --white: #FFFFFF;
+  
+  /* Neutral Colors - Dark */
+  --true-black: #000000;
+  --rich-black: #0F0F0F;
+  --dark-gray: #1A1A1A;
+  --medium-gray: #2C2C2C;
+  --light-text: #E5E5E5;
+  --muted-text: #A3A3A3;
+  
+  /* Background & Foreground */
+  --background: var(--off-white);
+  --foreground: var(--charcoal);
+}
+
+.dark {
+  --background: var(--rich-black);
+  --foreground: var(--light-text);
+}
+
+@theme inline {
+  --color-heritage-green-DEFAULT: var(--heritage-green);
+  --color-heritage-green-light: var(--heritage-green-light);
+  --color-legacy-gold-DEFAULT: var(--legacy-gold);
+  --color-legacy-gold-bright: var(--legacy-gold-bright);
+  --color-family-burgundy-DEFAULT: var(--family-burgundy);
+  --color-family-burgundy-light: var(--family-burgundy-light);
+  --color-sage-DEFAULT: var(--sage);
+  --color-sage-muted: var(--sage-muted);
+  --color-cream-DEFAULT: var(--cream);
+  --color-cream-dark: var(--dark-cream);
+  --color-terracotta-DEFAULT: var(--terracotta);
+  --color-terracotta-soft: var(--terracotta-soft);
+  --color-charcoal: var(--charcoal);
+  --color-slate-gray: var(--slate-gray);
+  --color-light-gray: var(--light-gray);
+  --color-off-white: var(--off-white);
+  --color-white: var(--white);
+  --color-true-black: var(--true-black);
+  --color-rich-black: var(--rich-black);
+  --color-dark-gray: var(--dark-gray);
+  --color-medium-gray: var(--medium-gray);
+  --color-light-text: var(--light-text);
+  --color-muted-text: var(--muted-text);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
