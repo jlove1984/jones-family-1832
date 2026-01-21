@@ -1,0 +1,86 @@
+{
+  "project": {
+    "name": "Jones Family Hub Implementation",
+    "description": "Complete implementation plan for Jones Family Hub with 12 milestones and 94 issues",
+    "start_date": "2026-01-27",
+    "target_launch": "2026-08-04",
+    "total_hours": 432,
+    "total_duration_weeks": "22-26"
+  },
+  "summary": {
+    "milestones": 12,
+    "issues": 94,
+    "m0_issues": 8,
+    "m1_issues": 8,
+    "m2_issues": 8,
+    "m3_issues": 7,
+    "m4_issues": 8,
+    "m5_issues": 8,
+    "m6_issues": 8,
+    "m7_issues": 7,
+    "m8_issues": 8,
+    "m9_issues": 10,
+    "m10_issues": 6,
+    "m11_issues": 5
+  },
+  "instructions": {
+    "usage": "This file contains structured data for all GitHub issues and milestones",
+    "import_methods": [
+      "Use github-project-setup.js script with full issue data",
+      "Import via GitHub CLI (gh issue create)",
+      "Import via GitHub API",
+      "Manual creation using GitHub web UI with this as reference"
+    ],
+    "notes": [
+      "Update OWNER and REPO values in scripts",
+      "Set GITHUB_TOKEN environment variable",
+      "Create milestones before issues",
+      "Create labels before issues",
+      "Dependencies are noted in issue descriptions"
+    ]
+  },
+  "quickstart": {
+    "step1": "Review docs/GITHUB_PROJECT_SETUP.md for complete guide",
+    "step2": "Run: npm install @octokit/rest",
+    "step3": "Set: export GITHUB_TOKEN=your_token",
+    "step4": "Update owner/repo in scripts/github-project-setup.js",
+    "step5": "Run: node scripts/github-project-setup.js",
+    "step6": "Create remaining issues from this data file"
+  },
+  "milestone_order": [
+    "M0: Design System Foundation",
+    "M1: Project Setup & Infrastructure",
+    "M2: Authentication & User Management",
+    "M3: Core Pages & Navigation",
+    "M4: Family Directory (Protected)",
+    "M5: Achievements System",
+    "M6: Gallery & Media Management",
+    "M7: Reunion RSVP",
+    "M8: Payments Integration",
+    "M9: Birthday Feature",
+    "M10: Testing & Launch Preparation",
+    "M11: Deployment & Post-Launch"
+  ],
+  "issue_number_ranges": {
+    "M0": "0.1 - 0.8",
+    "M1": "1 - 8",
+    "M2": "9 - 16",
+    "M3": "17 - 23",
+    "M4": "24 - 31",
+    "M5": "32 - 39",
+    "M6": "40 - 47",
+    "M7": "48 - 54",
+    "M8": "55 - 62",
+    "M9": "74 - 83",
+    "M10": "84 - 89",
+    "M11": "90 - 94"
+  },
+  "reference_documents": [
+    "GitHub Project Implementation Plan (source document)",
+    "docs/GITHUB_PROJECT_SETUP.md (setup guide)",
+    "docs/ARCHITECTURE.md (project structure)",
+    "docs/DEVELOPMENT.md (coding standards)",
+    "Technical Design Document (system architecture)",
+    "UI/UX Design Specifications & Brand Kit (design system)"
+  ]
+}

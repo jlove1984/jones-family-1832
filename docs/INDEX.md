@@ -20,6 +20,7 @@ Welcome to the Jones Family Hub documentation. Use this guide to quickly find wh
 - **[Contributing](../CONTRIBUTING.md)** - How to contribute to the project
 - **[Git Workflow](./guides/GIT_WORKFLOW.md)** - Branch naming and commit conventions
 - **[Component Guidelines](./guides/COMPONENTS.md)** - How to create components
+- **[GitHub Project Setup](./GITHUB_PROJECT_SETUP.md)** - Create milestones and issues ✨ NEW
 
 ## 🚢 Deployment
 

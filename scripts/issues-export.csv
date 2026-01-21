@@ -1,0 +1,92 @@
+Milestone,Issue Number,Title,Priority,Type,Estimate (Hours),Dependencies,Target Date
+M0: Design System Foundation,0.1,Logo Asset Preparation,P0 - Critical,"design, branding",4,,2026-02-10
+M0: Design System Foundation,0.2,Tailwind Configuration with Design Tokens,P0 - Critical,"design, frontend",5,,2026-02-10
+M0: Design System Foundation,0.3,CSS Variables & Theme System,P0 - Critical,"design, frontend",4,0.2,2026-02-10
+M0: Design System Foundation,0.4,Typography System Implementation,P0 - Critical,"design, frontend",3,0.2,2026-02-10
+M0: Design System Foundation,0.5,Core UI Component Library,P0 - Critical,"design, frontend",8,"0.2, 0.3, 0.4",2026-02-10
+M0: Design System Foundation,0.6,Layout Components,P1 - High,"design, frontend",4,0.5,2026-02-10
+M0: Design System Foundation,0.7,Theme Toggle Component,P1 - High,"design, frontend",3,"0.3, 0.5",2026-02-10
+M0: Design System Foundation,0.8,Iconography System,P2 - Medium,"design, frontend",2,0.2,2026-02-10
+M1: Project Setup & Infrastructure,1,Initialize Next.js Project,P0 - Critical,setup,4,,2026-02-24
+M1: Project Setup & Infrastructure,2,Configure Vercel Project & Environment,P0 - Critical,infrastructure,3,,2026-02-24
+M1: Project Setup & Infrastructure,3,Set Up PostgreSQL Database,P0 - Critical,database,5,,2026-02-24
+M1: Project Setup & Infrastructure,4,Database Schema Implementation,P0 - Critical,database,6,3,2026-02-24
+M1: Project Setup & Infrastructure,5,Set Up Redis Cache (Vercel KV),P1 - High,infrastructure,3,,2026-02-24
+M1: Project Setup & Infrastructure,6,Configure Vercel Blob Storage,P1 - High,infrastructure,3,,2026-02-24
+M1: Project Setup & Infrastructure,7,Set Up CI/CD Pipeline,P1 - High,devops,4,,2026-02-24
+M1: Project Setup & Infrastructure,8,Navigation & Footer Components,P1 - High,"frontend, design",5,M0,2026-02-24
+M2: Authentication & User Management,9,Install & Configure Better Auth,P0 - Critical,auth,6,"3, 4, 5",2026-03-10
+M2: Authentication & User Management,10,Build Registration Flow,P0 - Critical,"auth, frontend",8,9,2026-03-10
+M2: Authentication & User Management,11,Build Login Flow,P0 - Critical,"auth, frontend",6,9,2026-03-10
+M2: Authentication & User Management,12,Build Password Reset Flow,P1 - High,"auth, frontend",6,9,2026-03-10
+M2: Authentication & User Management,13,Implement Auth Middleware,P0 - Critical,"auth, backend",6,9,2026-03-10
+M2: Authentication & User Management,14,Build User Dashboard,P1 - High,frontend,6,13,2026-03-10
+M2: Authentication & User Management,15,Logout & Session Management,P1 - High,auth,3,9,2026-03-10
+M2: Authentication & User Management,16,Auth Testing Suite,P1 - High,testing,7,"10-15",2026-03-10
+M3: Core Pages & Navigation,17,Enhanced Navigation with Auth State,P0 - Critical,frontend,4,"13, 0.5",2026-03-24
+M3: Core Pages & Navigation,18,Build Homepage with Brand Identity,P0 - Critical,"frontend, design",10,"17, M0",2026-03-24
+M3: Core Pages & Navigation,19,Build Family History Page,P1 - High,"frontend, content",6,,2026-03-24
+M3: Core Pages & Navigation,20,Build Contact Form,P1 - High,"frontend, backend",5,,2026-03-24
+M3: Core Pages & Navigation,21,Build Footer Component,P2 - Medium,frontend,3,,2026-03-24
+M3: Core Pages & Navigation,22,SEO & Meta Tags Setup,P2 - Medium,seo,3,,2026-03-24
+M3: Core Pages & Navigation,23,Accessibility Audit & Compliance,P1 - High,"accessibility, design",4,M0,2026-03-24
+M4: Family Directory (Protected),24,Database Setup for Family Members,P0 - Critical,"database, backend",3,4,2026-04-14
+M4: Family Directory (Protected),25,Build Directory Listing Page,P0 - Critical,frontend,8,"24, 13",2026-04-14
+M4: Family Directory (Protected),26,Build Member Profile Page,P1 - High,frontend,6,24,2026-04-14
+M4: Family Directory (Protected),27,Build Profile Editing Feature,P1 - High,"frontend, backend",8,"24, 26",2026-04-14
+M4: Family Directory (Protected),28,CSV Import Feature (Admin),P1 - High,"backend, admin",8,24,2026-04-14
+M4: Family Directory (Protected),29,CSV Export Feature (Admin),P2 - Medium,"backend, admin",4,24,2026-04-14
+M4: Family Directory (Protected),30,Directory API Endpoints,P0 - Critical,backend,5,24,2026-04-14
+M4: Family Directory (Protected),31,Directory Testing Suite,P1 - High,testing,6,"24-30",2026-04-14
+M5: Achievements System,32,Build Achievements Submission Form,P0 - Critical,frontend,6,13,2026-05-05
+M5: Achievements System,33,Achievements API Endpoints,P0 - Critical,backend,6,4,2026-05-05
+M5: Achievements System,34,Build Achievements Display Page,P0 - Critical,frontend,8,33,2026-05-05
+M5: Achievements System,35,Build Admin Approval Interface,P0 - Critical,"frontend, admin",8,33,2026-05-05
+M5: Achievements System,36,Achievements Timeline View,P2 - Medium,frontend,6,34,2026-05-05
+M5: Achievements System,37,Email Notifications for Achievements,P2 - Medium,backend,4,33,2026-05-05
+M5: Achievements System,38,Integrate Achievements on Homepage,P1 - High,frontend,3,"33, 18",2026-05-05
+M5: Achievements System,39,Achievements Testing Suite,P1 - High,testing,7,"32-38",2026-05-05
+M6: Gallery & Media Management,40,Gallery Albums Database & API,P0 - Critical,backend,5,"4, 6",2026-05-26
+M6: Gallery & Media Management,41,Media Upload API,P0 - Critical,backend,8,"6, 40",2026-05-26
+M6: Gallery & Media Management,42,Build Gallery Landing Page,P0 - Critical,frontend,6,40,2026-05-26
+M6: Gallery & Media Management,43,Build Album Detail Page with Lightbox,P0 - Critical,frontend,10,"40, 41",2026-05-26
+M6: Gallery & Media Management,44,Admin Album Management Interface,P1 - High,"frontend, admin",8,"40, 41",2026-05-26
+M6: Gallery & Media Management,45,Media Deletion API,P1 - High,backend,4,"40, 41",2026-05-26
+M6: Gallery & Media Management,46,Gallery Performance Optimization,P1 - High,performance,5,"42-45",2026-05-26
+M6: Gallery & Media Management,47,Gallery Testing Suite,P1 - High,testing,6,"40-46",2026-05-26
+M7: Reunion RSVP,48,Reunion Content Management,P0 - Critical,"frontend, content",6,,2026-06-09
+M7: Reunion RSVP,49,RSVP Form & API,P0 - Critical,"frontend, backend",8,"13, 48",2026-06-09
+M7: Reunion RSVP,50,RSVP Status Display,P1 - High,frontend,4,49,2026-06-09
+M7: Reunion RSVP,51,Admin RSVP Management,P1 - High,"frontend, admin",6,49,2026-06-09
+M7: Reunion RSVP,52,RSVP Email Notifications,P2 - Medium,backend,3,49,2026-06-09
+M7: Reunion RSVP,53,Reunion Countdown Timer,P2 - Medium,frontend,3,"18, 48",2026-06-09
+M7: Reunion RSVP,54,RSVP Testing Suite,P1 - High,testing,5,"48-53",2026-06-09
+M8: Payments Integration,55,Stripe Account Setup,P0 - Critical,"payments, infrastructure",3,,2026-06-23
+M8: Payments Integration,56,Payment Products & Pricing,P0 - Critical,"payments, backend",4,55,2026-06-23
+M8: Payments Integration,57,Build Payments Page,P0 - Critical,frontend,8,"55, 56",2026-06-23
+M8: Payments Integration,58,Payment Processing API,P0 - Critical,"backend, payments",8,"55, 56",2026-06-23
+M8: Payments Integration,59,Stripe Webhook Handler,P0 - Critical,"backend, payments",5,"55, 58",2026-06-23
+M8: Payments Integration,60,Payment History Page,P1 - High,frontend,4,58,2026-06-23
+M8: Payments Integration,61,Admin Payment Reports,P1 - High,"admin, backend",5,58,2026-06-23
+M8: Payments Integration,62,Payment Testing Suite,P0 - Critical,"testing, payments",6,"55-61",2026-06-23
+M9: Birthday Feature,74,Birthday Database Schema Updates,P0 - Critical,"database, backend",3,4,2026-07-07
+M9: Birthday Feature,75,Birthday API Endpoints,P0 - Critical,"backend, api",6,74,2026-07-07
+M9: Birthday Feature,76,Birthday Widget Component,P0 - Critical,"frontend, design",6,"75, M0",2026-07-07
+M9: Birthday Feature,77,Integrate Birthday Widget on Homepage,P0 - Critical,frontend,2,"76, 18",2026-07-07
+M9: Birthday Feature,78,Birthday Calendar Page,P1 - High,"frontend, design",8,"75, M0",2026-07-07
+M9: Birthday Feature,79,Birthday Wish Functionality,P1 - High,"frontend, backend",5,"75, 78",2026-07-07
+M9: Birthday Feature,80,Birthday Notification Badge,P2 - Medium,"frontend, design",3,"75, 17",2026-07-07
+M9: Birthday Feature,81,Birthday Email Notifications,P2 - Medium,"backend, email",4,"74, 75",2026-07-07
+M9: Birthday Feature,82,Birthday Privacy Settings,P1 - High,"frontend, backend",3,"74, 27",2026-07-07
+M9: Birthday Feature,83,Birthday Testing Suite,P1 - High,testing,5,"74-82",2026-07-07
+M10: Testing & Launch Preparation,84,Comprehensive Integration Testing,P0 - Critical,testing,8,All previous,2026-07-21
+M10: Testing & Launch Preparation,85,End-to-End Testing with Playwright,P0 - Critical,testing,8,All previous,2026-07-21
+M10: Testing & Launch Preparation,86,Performance Audit & Optimization,P0 - Critical,performance,7,All previous,2026-07-21
+M10: Testing & Launch Preparation,87,Security Audit,P0 - Critical,security,5,All previous,2026-07-21
+M10: Testing & Launch Preparation,88,Cross-Browser & Device Testing,P1 - High,testing,4,All previous,2026-07-21
+M10: Testing & Launch Preparation,89,Documentation & User Guide,P1 - High,documentation,5,All previous,2026-07-21
+M11: Deployment & Post-Launch,90,Pre-Launch Checklist,P0 - Critical,deployment,4,All previous,2026-08-04
+M11: Deployment & Post-Launch,91,Production Deployment,P0 - Critical,deployment,3,90,2026-08-04
+M11: Deployment & Post-Launch,92,User Acceptance Testing,P0 - Critical,testing,4,91,2026-08-04
+M11: Deployment & Post-Launch,93,Launch Communications,P1 - High,launch,3,92,2026-08-04
+M11: Deployment & Post-Launch,94,Post-Launch Monitoring,P0 - Critical,monitoring,3,91,2026-08-04

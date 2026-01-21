@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "setup:github": "node scripts/github-project-setup.js",
+    "setup:install": "npm install @octokit/rest"
   },
   "dependencies": {
     "@vercel/speed-insights": "^1.3.1",
