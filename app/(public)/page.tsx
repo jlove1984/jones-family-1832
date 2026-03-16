@@ -1,13 +1,9 @@
 import Link from 'next/link'
-import { Calendar, Users, Trophy, Image as ImageIcon } from 'lucide-react'
+import { Calendar, Users, Trophy, Image as ImageIcon, CreditCard, PartyPopper } from 'lucide-react'
 import { FeatureCard } from '@/components/home/feature-card'
+import { CountdownTimer } from '@/components/home/countdown-timer'
 
 export default function HomePage() {
-  // Calculate days until reunion (July 15, 2027)
-  const reunionDate = new Date('2027-07-15')
-  const today = new Date()
-  const daysUntil = Math.ceil((reunionDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -38,42 +34,111 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Countdown Section */}
-      <section className="py-12 bg-legacy-gold-DEFAULT text-white">
+      {/* Countdown Section (Brand Kit 5.10: Days | Hours | Minutes, Terracotta accent) */}
+      <section className="py-12 border-y-4 border-terracotta-DEFAULT bg-terracotta-DEFAULT/90 dark:bg-terracotta-soft/20 dark:border-terracotta-soft text-white">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-display font-semibold mb-2">Reunion 2027 Countdown</h2>
-          <p className="text-5xl font-display font-bold">{daysUntil} Days</p>
-          <p className="text-lg mt-2">Until we gather together again!</p>
+          <h2 className="text-2xl font-display font-semibold mb-6">Reunion 2027 Countdown</h2>
+          <CountdownTimer />
+          <p className="text-sm font-body text-white/90 mt-6">Until we gather together again!</p>
         </div>
       </section>
 
-      {/* Features Grid */}
+      {/* Latest 3 achievements (TDD 3.1 – placeholder until API) */}
+      <section className="py-16 sm:py-24 bg-white dark:bg-rich-black">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-display font-semibold mb-8">Latest Achievements</h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {[1, 2, 3].map((i) => (
+              <div
+                key={i}
+                className="rounded-card border border-light-gray dark:border-medium-gray bg-cream dark:bg-dark-cream p-6 shadow-card dark:shadow-card-dark"
+              >
+                <div className="h-24 rounded bg-light-gray/50 dark:bg-medium-gray/50 mb-4" />
+                <div className="h-4 w-3/4 rounded bg-charcoal/10 dark:bg-light-text/10 mb-2" />
+                <div className="h-3 w-full rounded bg-slate-gray/20 dark:bg-muted-text/20" />
+                <p className="text-sm text-slate-gray dark:text-muted-text mt-2">Coming soon</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link
+              href="/achievements"
+              className="inline-flex items-center justify-center rounded-lg border-2 border-heritage-green-DEFAULT dark:border-heritage-green-light px-6 py-2 text-base font-semibold text-heritage-green-DEFAULT dark:text-heritage-green-light hover:bg-heritage-green-DEFAULT/10 transition-colors"
+            >
+              View all achievements
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Upcoming birthdays widget (TDD 3.1, Brand Kit 5.8 – placeholder until API) */}
+      <section className="py-16 sm:py-24 bg-cream dark:bg-dark-cream">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-display font-semibold mb-2 flex items-center gap-2">
+            <span role="img" aria-hidden>🎂</span>
+            Upcoming Birthdays
+          </h2>
+          <p className="text-slate-gray dark:text-muted-text text-sm mb-6">
+            Today and the next 7 days — names and ages when not logged in.
+          </p>
+          <div className="rounded-2xl border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray p-6 shadow-card dark:shadow-card-dark">
+            <div className="flex flex-col gap-3">
+              {[1, 2].map((i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 rounded-lg border border-light-gray/50 dark:border-medium-gray/50 p-3"
+                >
+                  <div className="h-12 w-12 rounded-full bg-legacy-gold-DEFAULT/20 dark:bg-legacy-gold-bright/20 flex-shrink-0" />
+                  <div>
+                    <div className="h-4 w-32 rounded bg-charcoal/20 dark:bg-light-text/20 mb-2" />
+                    <div className="h-3 w-20 rounded bg-slate-gray/20" />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <Link
+              href="/birthdays"
+              className="mt-4 inline-flex text-sm font-semibold text-heritage-green-DEFAULT dark:text-heritage-green-light hover:underline"
+            >
+              View all birthdays →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick navigation CTAs (TDD 3.1: Reunion, Payments, Achievements, Directory, Gallery) */}
       <section className="py-16 sm:py-24">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
             <FeatureCard
-              icon={<Users className="h-10 w-10" />}
-              title="Family Directory"
-              description="Connect with family members across all branches and generations."
-              href="/directory"
+              icon={<PartyPopper className="h-10 w-10" />}
+              title="Reunion 2027"
+              description="Event details, RSVP, and reunion information."
+              href="/reunion"
+            />
+            <FeatureCard
+              icon={<CreditCard className="h-10 w-10" />}
+              title="Payments"
+              description="Reunion dues and optional donations."
+              href="/payments"
             />
             <FeatureCard
               icon={<Trophy className="h-10 w-10" />}
               title="Achievements"
-              description="Celebrate milestones, graduations, and family accomplishments."
+              description="Celebrate milestones and family accomplishments."
               href="/achievements"
+            />
+            <FeatureCard
+              icon={<Users className="h-10 w-10" />}
+              title="Family Directory"
+              description="Connect with family across branches and generations."
+              href="/directory"
             />
             <FeatureCard
               icon={<ImageIcon className="h-10 w-10" />}
               title="Photo Gallery"
               description="Browse photos and videos from reunions and family history."
               href="/gallery"
-            />
-            <FeatureCard
-              icon={<Calendar className="h-10 w-10" />}
-              title="Birthdays"
-              description="Never miss a family member's birthday celebration."
-              href="/birthdays"
             />
           </div>
         </div>

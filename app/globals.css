@@ -68,6 +68,14 @@
   --color-muted-text: var(--muted-text);
 }
 
+/* Theme transition per Brand Kit 3.6 (200ms) */
+.theme-transition,
+.theme-transition * {
+  transition: background-color 200ms ease-in-out,
+    border-color 200ms ease-in-out,
+    color 200ms ease-in-out;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

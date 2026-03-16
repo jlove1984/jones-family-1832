@@ -37,10 +37,10 @@ export function Header() {
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <Link
-            href="/auth/login"
-            className="hidden sm:inline-flex items-center justify-center rounded-lg bg-heritage-green-DEFAULT px-4 py-2 text-sm font-semibold text-white shadow-button hover:bg-heritage-green-DEFAULT/90 transition-colors"
+            href="/login"
+            className="hidden sm:inline-flex items-center justify-center rounded-lg bg-heritage-green-DEFAULT dark:bg-heritage-green-light px-4 py-2 text-sm font-semibold text-white dark:text-rich-black shadow-button hover:opacity-90 transition-colors"
           >
-            Login
+            Log in
           </Link>
         </div>
       </div>

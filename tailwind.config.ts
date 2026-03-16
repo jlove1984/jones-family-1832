@@ -57,6 +57,7 @@ const config: Config = {
       fontFamily: {
         display: ['var(--font-playfair)', 'Georgia', 'serif'],
         body: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'Courier New', 'monospace'],
       },
       fontSize: {
         'hero': ['64px', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
@@ -71,7 +72,10 @@ const config: Config = {
       boxShadow: {
         'card': '0 2px 8px rgba(0,0,0,0.08)',
         'card-hover': '0 4px 12px rgba(0,0,0,0.12)',
+        'card-dark': '0 2px 8px rgba(0,0,0,0.24)',
+        'card-hover-dark': '0 4px 12px rgba(0,0,0,0.36)',
         'modal': '0 20px 60px rgba(0,0,0,0.3)',
+        'modal-dark': '0 20px 60px rgba(0,0,0,0.6)',
         'button': '0 2px 4px rgba(0,0,0,0.1)',
       },
     },
