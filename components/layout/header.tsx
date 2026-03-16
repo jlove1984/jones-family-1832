@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
+import { AuthNav } from '@/components/auth/auth-nav'
 
 export function Header() {
   return (
@@ -36,12 +37,7 @@ export function Header() {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Link
-            href="/login"
-            className="hidden sm:inline-flex items-center justify-center rounded-lg bg-heritage-green-DEFAULT dark:bg-heritage-green-light px-4 py-2 text-sm font-semibold text-white dark:text-rich-black shadow-button hover:opacity-90 transition-colors"
-          >
-            Log in
-          </Link>
+          <AuthNav />
         </div>
       </div>
     </header>
