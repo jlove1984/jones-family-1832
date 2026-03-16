@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { ChevronDown, LayoutDashboard, LogOut } from 'lucide-react'
+import { ChevronDown, LayoutDashboard, LogOut, User, Settings } from 'lucide-react'
 import { authClient } from '@/lib/auth-client'
 import * as React from 'react'
 
@@ -111,6 +111,24 @@ export function AuthNav() {
           >
             <LayoutDashboard className="size-4" />
             Dashboard
+          </Link>
+          <Link
+            href="/profile"
+            className="flex items-center gap-2 px-4 py-2 text-sm text-charcoal dark:text-light-text hover:bg-light-gray/50 dark:hover:bg-medium-gray/50"
+            role="menuitem"
+            onClick={() => setOpen(false)}
+          >
+            <User className="size-4" />
+            View profile
+          </Link>
+          <Link
+            href="/settings"
+            className="flex items-center gap-2 px-4 py-2 text-sm text-charcoal dark:text-light-text hover:bg-light-gray/50 dark:hover:bg-medium-gray/50"
+            role="menuitem"
+            onClick={() => setOpen(false)}
+          >
+            <Settings className="size-4" />
+            Account settings
           </Link>
           <button
             type="button"
