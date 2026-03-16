@@ -18,7 +18,8 @@ const { execSync } = require('child_process');
 const path = require('path');
 
 const repoRoot = path.resolve(__dirname, '..');
-const message = process.argv.slice(2).join(' ').trim();
+const args = process.argv.slice(2);
+const message = (args[0] === '--' ? args.slice(1) : args).join(' ').trim();
 
 if (!message) {
   console.error('Usage: pnpm run checkpoint -- "your commit message"');
