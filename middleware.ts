@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { getSessionCookie } from 'better-auth/cookies'
 
-const PROTECTED_PATHS = ['/directory', '/achievements', '/dashboard', '/birthdays', '/payments']
+const PROTECTED_PATHS = ['/directory', '/achievements', '/dashboard', '/birthdays', '/payments', '/gallery']
 
 function isProtectedPath(pathname: string): boolean {
   return PROTECTED_PATHS.some((p) => pathname === p || pathname.startsWith(p + '/'))
@@ -24,5 +24,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/directory', '/directory/:path*', '/achievements', '/achievements/:path*', '/dashboard', '/dashboard/:path*', '/birthdays', '/birthdays/:path*', '/payments', '/payments/:path*'],
+  matcher: ['/directory', '/directory/:path*', '/achievements', '/achievements/:path*', '/dashboard', '/dashboard/:path*', '/birthdays', '/birthdays/:path*', '/payments', '/payments/:path*', '/gallery', '/gallery/:path*'],
 }

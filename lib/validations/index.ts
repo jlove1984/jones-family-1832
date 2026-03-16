@@ -106,6 +106,12 @@ export const galleryAlbumPatchBodySchema = z.object({
   coverPhotoUrl: z.string().url().optional().nullable(),
 })
 
+export const galleryMediaPostBodySchema = z.object({
+  mediaUrl: z.string().url('Invalid URL'),
+  mediaType: z.enum(['image', 'video']),
+  caption: z.string().max(1000).optional().nullable(),
+})
+
 // ---- Reunion content (admin) ----
 export const reunionContentPostBodySchema = z.object({
   contentKey: z.string().min(1).max(100),
@@ -131,4 +137,5 @@ export type PaymentsCreateIntentBody = z.infer<typeof paymentsCreateIntentBodySc
 export type BirthdayWishBody = z.infer<typeof birthdayWishBodySchema>
 export type GalleryAlbumPostBody = z.infer<typeof galleryAlbumPostBodySchema>
 export type GalleryAlbumPatchBody = z.infer<typeof galleryAlbumPatchBodySchema>
+export type GalleryMediaPostBody = z.infer<typeof galleryMediaPostBodySchema>
 export type ReunionContentPostBody = z.infer<typeof reunionContentPostBodySchema>
