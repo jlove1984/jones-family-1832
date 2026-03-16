@@ -2,6 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { PageHeader } from '@/components/ui/page-header'
+import { StatCard } from '@/components/ui/stat-card'
+import { Alert } from '@/components/ui/alert'
+import { ButtonLink } from '@/components/ui/button'
+import { CardSkeleton } from '@/components/ui/loading-skeleton'
 
 type Summary = {
   rsvp: { attending: boolean; adultsCount: number; childrenCount: number } | null
@@ -28,59 +33,54 @@ export function DashboardPageClient() {
 
   return (
     <div className="container mx-auto max-w-4xl px-4 py-8">
-      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <h1 className="text-2xl font-display font-semibold">Dashboard</h1>
-        <Link href="/" className="text-sm text-heritage-green-DEFAULT dark:text-heritage-green-light hover:underline">
-          Back to home
-        </Link>
-      </div>
+      <PageHeader
+        title="Dashboard"
+        actions={<ButtonLink variant="tertiary" size="sm" href="/">Back to home</ButtonLink>}
+      />
 
       {error && (
-        <div className="mb-4 rounded-card border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 p-4 text-red-700 dark:text-red-300">
-          {error}
+        <div className="mb-4">
+          <Alert variant="error" description={error} />
         </div>
       )}
 
       {loading ? (
-        <p className="text-slate-gray dark:text-muted-text py-8">Loading…</p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <CardSkeleton />
+          <CardSkeleton />
+          <CardSkeleton />
+        </div>
       ) : summary ? (
         <div className="space-y-6">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-card border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray p-6 shadow-card dark:shadow-card-dark">
-              <h2 className="text-sm font-semibold text-slate-gray dark:text-muted-text mb-2">Reunion RSVP</h2>
-              {summary.rsvp ? (
-                <p className="font-medium">
-                  {summary.rsvp.attending
+            <StatCard
+              label="Reunion RSVP"
+              value={
+                summary.rsvp
+                  ? summary.rsvp.attending
                     ? `Yes — ${summary.rsvp.adultsCount} adult(s), ${summary.rsvp.childrenCount} child(ren)`
-                    : 'Not attending'}
-                </p>
-              ) : (
-                <p className="text-slate-gray dark:text-muted-text">Not submitted</p>
-              )}
-              <Link href="/reunion" className="mt-2 inline-block text-sm text-heritage-green-DEFAULT dark:text-heritage-green-light hover:underline">
-                Update RSVP →
-              </Link>
-            </div>
-            <div className="rounded-card border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray p-6 shadow-card dark:shadow-card-dark">
-              <h2 className="text-sm font-semibold text-slate-gray dark:text-muted-text mb-2">Last payment</h2>
-              {summary.lastPayment ? (
-                <p className="font-medium">
-                  ${summary.lastPayment.amount} {summary.lastPayment.paymentType} — {summary.lastPayment.status}
-                </p>
-              ) : (
-                <p className="text-slate-gray dark:text-muted-text">None yet</p>
-              )}
-              <Link href="/payments" className="mt-2 inline-block text-sm text-heritage-green-DEFAULT dark:text-heritage-green-light hover:underline">
-                View payments →
-              </Link>
-            </div>
-            <div className="rounded-card border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray p-6 shadow-card dark:shadow-card-dark">
-              <h2 className="text-sm font-semibold text-slate-gray dark:text-muted-text mb-2">Directory profile</h2>
-              <p className="font-medium">{summary.hasProfile ? 'Complete' : 'Not set up'}</p>
-              <Link href="/directory" className="mt-2 inline-block text-sm text-heritage-green-DEFAULT dark:text-heritage-green-light hover:underline">
-                {summary.hasProfile ? 'Edit profile →' : 'Add profile →'}
-              </Link>
-            </div>
+                    : 'Not attending'
+                  : 'Not submitted'
+              }
+              href="/reunion"
+              linkLabel="Update RSVP"
+            />
+            <StatCard
+              label="Last payment"
+              value={
+                summary.lastPayment
+                  ? `$${summary.lastPayment.amount} ${summary.lastPayment.paymentType} — ${summary.lastPayment.status}`
+                  : 'None yet'
+              }
+              href="/payments"
+              linkLabel="View payments"
+            />
+            <StatCard
+              label="Directory profile"
+              value={summary.hasProfile ? 'Complete' : 'Not set up'}
+              href="/directory"
+              linkLabel={summary.hasProfile ? 'Edit profile' : 'Add profile'}
+            />
           </div>
 
           <div className="rounded-card border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray p-6 shadow-card dark:shadow-card-dark">
