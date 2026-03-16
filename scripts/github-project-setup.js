@@ -20,6 +20,7 @@
  * - GITHUB_REPO: Repository name (default: jones-family-1832)
  */
 
+require("dotenv").config();
 const { Octokit } = require("@octokit/rest");
 
 // Configuration
@@ -254,27 +255,13 @@ async function createMilestones() {
           owner: OWNER,
           repo: REPO,
           title: milestone.title,
-          description: miidempotent - checks for existing issues by title)
- * Full issue creation should be done manually or with full data
- */
-async function createSampleIssues(milestoneMap) {
-  console.log("\n📝 Creating sample issues (if not already exist)...\n");
-  console.log("Note: Creating first issue from each milestone as examples.");
-  console.log("Use the full data file or GitHub UI to create remaining issues.\n");
-  
-  // Get existing issues to avoid duplicates
-  let existingIssues = [];
-  try {
-    const { data } = await octokit.issues.listForRepo({
-      owner: OWNER,
-      repo: REPO,
-      state: "all",
-      per_page: 100
-    });
-    existingIssues = data;
-  } catch (error) {
-    console.log(`  ⚠ Could not fetch existing issues: ${error.message}`);
-  }.number})`);
+          description: milestone.description,
+          due_on: milestone.due_on,
+          state: milestone.state
+        });
+        
+        createdMilestones[milestone.title] = response.data.number;
+        console.log(`  ✓ Created milestone: ${milestone.title} (ID: ${response.data.number})`);
       } catch (error) {
         console.error(`  ✗ Error creating milestone ${milestone.title}:`, error.message);
       }
@@ -355,14 +342,20 @@ async function createSampleIssues(milestoneMap) {
 - [ ] Create auth configuration file
 - [ ] Configure HTTP-only cookies
 - [ ] Set up CSRF protection
-// Check if issue already exists by title
-    const existing = existingIssues.find(i => i.title === issue.title);
-    
-    if (existing) {
-      console.log(`  ↻ Issue already exists #${existing.number}: ${issue.title}`);
-      continue;
+
+## Acceptance Criteria
+- Better Auth configured
+- Session management working
+- Security measures in place
+
+**Estimate:** 6 hours
+**Dependencies:** Issue #3 (PostgreSQL Database), Issue #4 (Database Schema), Issue #5 (Redis Cache)`,
+      labels: ["auth", "backend", "P0 - Critical"],
+      milestone: "M2: Authentication & User Management"
     }
-    
+  ];
+  
+  for (const issue of sampleIssues) {
     try {
       const milestoneNumber = milestoneMap[issue.milestone];
       
@@ -386,20 +379,6 @@ async function createSampleIssues(milestoneMap) {
     }
   }
   
-  console.log(`\n💡 Sample issues process
-        repo: REPO,
-        title: issue.title,
-        body: issue.body,
-        labels: issue.labels,
-        milestone: milestoneNumber
-      });
-      
-      console.log(`  ✓ Created issue #${response.data.number}: ${issue.title}`);
-    } catch (error) {
-      console.error(`  ✗ Error creating issue "${issue.title}":`, error.message);
-    }
-  }
-  
   console.log(`\n💡 Sample issues created. See docs/GITHUB_PROJECT_SETUP.md for complete issue list.`);
 }
 
@@ -409,14 +388,12 @@ async function createSampleIssues(milestoneMap) {
 async function main() {
   console.log("=".repeat(60));
   console.log("Jones Family Hub - GitHub Project Setup");
-  console.log("=".r✨ This script is idempotent - safe to run multiple times!");
-    console.log("\nNext steps:");
-    console.log("1. Visit https://github.com/" + OWNER + "/" + REPO + "/milestones");
-    console.log("2. Visit https://github.com/" + OWNER + "/" + REPO + "/issues");
-    console.log("3. Create remaining issues using GitHub UI or API");
-    console.log("4. Set up GitHub Project board");
-    console.log("\nDocumentation: docs/GITHUB_PROJECT_SETUP.md");
-    console.log("\n💡 To re-run: node scripts/github-project-setup.js
+  console.log("=".repeat(60));
+  console.log(`\nRepository: ${OWNER}/${REPO}`);
+  console.log(`Total Milestones: ${milestones.length}`);
+  console.log(`Total Labels: ${labels.length}`);
+  
+  try {
     // Verify repository access
     await octokit.repos.get({ owner: OWNER, repo: REPO });
     console.log("✓ Repository access verified");

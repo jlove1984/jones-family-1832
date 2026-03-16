@@ -3,18 +3,15 @@
 ## TL;DR - Get Started in 2 Minutes
 
 ```bash
-# 1. Install Octokit
-pnpm add -D @octokit/rest
-# or: npm install --save-dev @octokit/rest
+# 1. Install Dependencies
+pnpm setup:install
+# or: pnpm add -D @octokit/rest dotenv
 
-# 2. Set GitHub Token
-export GITHUB_TOKEN="your_github_token_here"
+# 2. Configure Environment
+cp .env.example .env
+# Edit .env and add your GitHub token and username
 
-# 3. Update Configuration
-# Edit scripts/github-project-setup.js
-# Change: const OWNER = "your-username";
-
-# 4. Run Setup
+# 3. Run Setup
 pnpm setup:github
 # or: node scripts/github-project-setup.js
 ```
@@ -63,39 +60,32 @@ Creates first issue from M0, M1, M2 as examples
    ```
    Go to: GitHub → Settings → Developer Settings → Personal Access Tokens
    Create token with 'repo' permissions
+   Copy the token (starts with 'ghp_')
    ```
 
 2. **Install Dependencies**
    ```bash
-   pnpm add -D @octokit/rest
+   pnpm setup:install
+   # or: pnpm add -D @octokit/rest dotenv
    ```
 
-3. **Configure Script**
+3. **Configure Environment**
    ```bash
-   # Edit scripts/github-project-setup.js
-   # Update these lines:
-   const OWNER = "your-github-username";
-   const REPO = "jones-family-1832";
+   # Copy the example file
+   cp .env.example .env
+   
+   # Edit .env file and update:
+   # - GITHUB_TOKEN=your_actual_token_here
+   # - GITHUB_OWNER=your-github-username
+   # - GITHUB_REPO=jones-family-1832
    ```
 
-4. **Set Environment Variable**
-   ```bash
-   # macOS/Linux
-   export GITHUB_TOKEN="ghp_your_token_here"
-   
-   # Windows PowerShell
-   $env:GITHUB_TOKEN="ghp_your_token_here"
-   
-   # Windows CMD
-   set GITHUB_TOKEN=ghp_your_token_here
-   ```
-
-5. **Run Setup**
+4. **Run Setup**
    ```bash
    pnpm setup:github
    ```
 
-6. **Verify**
+5. **Verify**
    ```
    Visit: https://github.com/your-username/jones-family-1832/milestones
    Visit: https://github.com/your-username/jones-family-1832/issues

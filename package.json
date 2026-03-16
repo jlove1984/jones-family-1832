@@ -10,6 +10,7 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "gate": "pnpm run type-check",
+    "checkpoint": "node scripts/checkpoint.js",
     "setup:github": "node scripts/github-project-setup.js",
     "setup:install": "pnpm add -D @octokit/rest dotenv"
   },

@@ -105,6 +105,16 @@ The gate runs `type-check`. If it fails, fix issues before committing. Run `pnpm
 
 **Workflow:** Make a logical unit of changes → run `pnpm run gate` → if pass, `git add` and `git commit`. Repeat for the next unit.
 
+### Automated checkpoint commits
+
+At checkpoints (e.g. after a logical unit of work), you can run one command that runs the gate and then commits:
+
+```bash
+pnpm run checkpoint -- "feat(layout): add app sidebar"
+```
+
+This runs `pnpm run gate`; if it passes, stages all changes (`git add -A`) and commits with the given message. If the gate fails, no commit is made.
+
 ## Workflow Steps
 
 ### 1. Update Main Branch
