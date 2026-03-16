@@ -90,9 +90,6 @@ export function RegisterForm() {
         >
           Already have an account? Log in
         </Link>
-        <Link href="/" className="text-center text-sm text-slate-gray dark:text-muted-text hover:underline">
-          Back to home
-        </Link>
       </div>
     </form>
   )

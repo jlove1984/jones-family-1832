@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function RegisterPage() {
   return (
-    <div className="container mx-auto max-w-md px-4 py-16">
+    <div className="w-full max-w-[400px]">
       <div className="rounded-card border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray p-8 shadow-card dark:shadow-card-dark">
         <h1 className="text-2xl font-display font-semibold mb-6">Create account</h1>
         <RegisterForm />
