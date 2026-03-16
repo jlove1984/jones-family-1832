@@ -66,6 +66,10 @@ const config: Config = {
       spacing: {
         '18': '72px', // Header height
       },
+      maxWidth: {
+        'content': '620px',   // WordPress content width (reading)
+        'wide': '1280px',    // WordPress wide size
+      },
       borderRadius: {
         'card': '12px',
       },
