@@ -93,6 +93,18 @@ Separate component into smaller, reusable parts.
 Improves maintainability and testability."
 ```
 
+## Gated Commits
+
+Before committing, run the **gate** so only passing code is committed:
+
+```bash
+pnpm run gate
+```
+
+The gate runs `type-check`. If it fails, fix issues before committing. Run `pnpm run lint` and `pnpm run build` as needed for a full check.
+
+**Workflow:** Make a logical unit of changes → run `pnpm run gate` → if pass, `git add` and `git commit`. Repeat for the next unit.
+
 ## Workflow Steps
 
 ### 1. Update Main Branch
