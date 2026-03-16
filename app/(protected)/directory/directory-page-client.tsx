@@ -2,16 +2,24 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { DirectoryTable } from '@/components/features/directory/directory-table'
 import { DirectoryCardList } from '@/components/features/directory/directory-card-list'
 import type { Member } from '@/types'
 
 export function DirectoryPageClient() {
+  const searchParams = useSearchParams()
+  const qFromUrl = searchParams.get('q') ?? ''
   const [members, setMembers] = useState<Member[]>([])
-  const [search, setSearch] = useState('')
-  const [query, setQuery] = useState('')
+  const [search, setSearch] = useState(qFromUrl)
+  const [query, setQuery] = useState(qFromUrl)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    setSearch(qFromUrl)
+    setQuery(qFromUrl)
+  }, [qFromUrl])
 
   useEffect(() => {
     const url = query ? `/api/directory?q=${encodeURIComponent(query)}` : '/api/directory'
