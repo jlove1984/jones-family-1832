@@ -36,6 +36,7 @@ export function TopBarSearch() {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Search…"
+        autoComplete="search"
         className="min-w-0 flex-1 bg-transparent text-sm text-charcoal dark:text-light-text placeholder:text-slate-gray dark:placeholder:text-muted-text focus:outline-none"
         aria-label="Search"
       />

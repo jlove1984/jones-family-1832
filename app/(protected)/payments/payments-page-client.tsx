@@ -85,6 +85,7 @@ export function PaymentsPageClient() {
             <label className="block text-sm font-medium mb-1">Type</label>
             <select
               {...register('paymentType')}
+              autoComplete="off"
               className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
             >
               {PAYMENT_TYPES.map((t) => (
@@ -99,6 +100,7 @@ export function PaymentsPageClient() {
               step="0.01"
               min="0.01"
               {...register('amount', { valueAsNumber: true })}
+              autoComplete="off"
               className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
             />
             {errors.amount && <p className="text-red-500 text-xs mt-1">{errors.amount.message}</p>}
@@ -110,6 +112,7 @@ export function PaymentsPageClient() {
               min={2020}
               max={2030}
               {...register('reunionYear', { valueAsNumber: true })}
+              autoComplete="off"
               className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
             />
           </div>

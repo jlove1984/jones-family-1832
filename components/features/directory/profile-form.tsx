@@ -72,6 +72,7 @@ export function ProfileForm({ profile, onSuccess }: ProfileFormProps) {
         <label className="block text-sm font-medium mb-1">Branch</label>
         <input
           {...register('branch')}
+          autoComplete="organization"
           className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
         />
         {errors.branch && <p className="text-red-500 text-xs mt-1">{errors.branch.message}</p>}
@@ -81,6 +82,7 @@ export function ProfileForm({ profile, onSuccess }: ProfileFormProps) {
         <input
           {...register('phone')}
           type="tel"
+          autoComplete="tel"
           className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
         />
         {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
@@ -90,6 +92,7 @@ export function ProfileForm({ profile, onSuccess }: ProfileFormProps) {
           <label className="block text-sm font-medium mb-1">City</label>
           <input
             {...register('city')}
+            autoComplete="address-level2"
             className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
           />
           {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city.message}</p>}
@@ -98,6 +101,7 @@ export function ProfileForm({ profile, onSuccess }: ProfileFormProps) {
           <label className="block text-sm font-medium mb-1">State</label>
           <input
             {...register('state')}
+            autoComplete="address-level1"
             className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
           />
           {errors.state && <p className="text-red-500 text-xs mt-1">{errors.state.message}</p>}
@@ -110,6 +114,7 @@ export function ProfileForm({ profile, onSuccess }: ProfileFormProps) {
           type="number"
           min={1}
           max={50}
+          autoComplete="off"
           className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
         />
         {errors.householdSize && <p className="text-red-500 text-xs mt-1">{errors.householdSize.message}</p>}
@@ -119,6 +124,7 @@ export function ProfileForm({ profile, onSuccess }: ProfileFormProps) {
         <input
           {...register('profilePhotoUrl')}
           type="url"
+          autoComplete="url"
           className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
         />
         {errors.profilePhotoUrl && <p className="text-red-500 text-xs mt-1">{errors.profilePhotoUrl.message}</p>}
@@ -128,6 +134,7 @@ export function ProfileForm({ profile, onSuccess }: ProfileFormProps) {
         <textarea
           {...register('bio')}
           rows={4}
+          autoComplete="off"
           className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
         />
         {errors.bio && <p className="text-red-500 text-xs mt-1">{errors.bio.message}</p>}
@@ -138,6 +145,7 @@ export function ProfileForm({ profile, onSuccess }: ProfileFormProps) {
           <input
             {...register('birthDate')}
             type="date"
+            autoComplete="bday"
             className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
           />
           {errors.birthDate && <p className="text-red-500 text-xs mt-1">{errors.birthDate.message}</p>}
@@ -149,6 +157,7 @@ export function ProfileForm({ profile, onSuccess }: ProfileFormProps) {
             type="number"
             min={1900}
             max={2100}
+            autoComplete="off"
             className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
           />
           {errors.birthYear && <p className="text-red-500 text-xs mt-1">{errors.birthYear.message}</p>}
@@ -156,15 +165,15 @@ export function ProfileForm({ profile, onSuccess }: ProfileFormProps) {
       </div>
       <div className="flex flex-wrap gap-4">
         <label className="flex items-center gap-2">
-          <input type="checkbox" {...register('showBirthday')} className="rounded" />
+          <input type="checkbox" {...register('showBirthday')} autoComplete="off" className="rounded" />
           <span className="text-sm">Show birthday in directory</span>
         </label>
         <label className="flex items-center gap-2">
-          <input type="checkbox" {...register('birthdayEmailNotifications')} className="rounded" />
+          <input type="checkbox" {...register('birthdayEmailNotifications')} autoComplete="off" className="rounded" />
           <span className="text-sm">Birthday email reminders</span>
         </label>
         <label className="flex items-center gap-2">
-          <input type="checkbox" {...register('isVisible')} className="rounded" />
+          <input type="checkbox" {...register('isVisible')} autoComplete="off" className="rounded" />
           <span className="text-sm">Visible in directory</span>
         </label>
       </div>

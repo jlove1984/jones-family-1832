@@ -58,6 +58,7 @@ export function DirectoryPageClient() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && setQuery(search)}
+          autoComplete="search"
           className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-4 py-2 text-sm"
         />
         <button

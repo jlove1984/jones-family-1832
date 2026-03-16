@@ -128,32 +128,32 @@ export function ReunionPageClient() {
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <label className="flex items-center gap-2">
-              <input type="checkbox" {...register('attending')} className="rounded" />
+              <input type="checkbox" {...register('attending')} autoComplete="off" className="rounded" />
               <span>I plan to attend</span>
             </label>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-1">Adults</label>
-                <input type="number" min={0} max={50} {...register('adultsCount', { valueAsNumber: true })} className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
+                <input type="number" min={0} max={50} {...register('adultsCount', { valueAsNumber: true })} autoComplete="off" className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
                 {errors.adultsCount && <p className="text-red-500 text-xs mt-1">{errors.adultsCount.message}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Children</label>
-                <input type="number" min={0} max={50} {...register('childrenCount', { valueAsNumber: true })} className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
+                <input type="number" min={0} max={50} {...register('childrenCount', { valueAsNumber: true })} autoComplete="off" className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
                 {errors.childrenCount && <p className="text-red-500 text-xs mt-1">{errors.childrenCount.message}</p>}
               </div>
             </div>
             <label className="flex items-center gap-2">
-              <input type="checkbox" {...register('lodgingNeeded')} className="rounded" />
+              <input type="checkbox" {...register('lodgingNeeded')} autoComplete="off" className="rounded" />
               <span>I need lodging</span>
             </label>
             <div>
               <label className="block text-sm font-medium mb-1">Dietary restrictions</label>
-              <input {...register('dietaryRestrictions')} className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
+              <input {...register('dietaryRestrictions')} autoComplete="off" className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Special requests</label>
-              <textarea {...register('specialRequests')} rows={2} className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
+              <textarea {...register('specialRequests')} rows={2} autoComplete="off" className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
             </div>
             {error && <p className="text-red-500 text-sm">{error}</p>}
             {saved && <p className="text-heritage-green-DEFAULT dark:text-heritage-green-light text-sm">RSVP saved.</p>}

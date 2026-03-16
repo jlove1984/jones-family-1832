@@ -83,6 +83,7 @@ export function ContactPageClient() {
           <label className="block text-sm font-medium mb-1">Category *</label>
           <select
             {...register('category')}
+            autoComplete="off"
             className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
           >
             {CATEGORIES.map((c) => (
@@ -92,20 +93,20 @@ export function ContactPageClient() {
         </div>
         <div>
           <label className="block text-sm font-medium mb-1">Your name</label>
-          <input {...register('senderName')} className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
+          <input {...register('senderName')} autoComplete="name" className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
         </div>
         <div>
           <label className="block text-sm font-medium mb-1">Email *</label>
-          <input type="email" {...register('senderEmail')} className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
+          <input type="email" {...register('senderEmail')} autoComplete="email" className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
           {errors.senderEmail && <p className="text-red-500 text-xs mt-1">{errors.senderEmail.message}</p>}
         </div>
         <div>
           <label className="block text-sm font-medium mb-1">Subject</label>
-          <input {...register('subject')} className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
+          <input {...register('subject')} autoComplete="off" className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
         </div>
         <div>
           <label className="block text-sm font-medium mb-1">Message *</label>
-          <textarea {...register('message')} rows={5} className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
+          <textarea {...register('message')} rows={5} autoComplete="off" className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm" />
           {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}

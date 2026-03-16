@@ -92,6 +92,7 @@ export function GalleryAlbumPageClient({
                 placeholder="Image or video URL"
                 value={addUrl}
                 onChange={(e) => setAddUrl(e.target.value)}
+                autoComplete="url"
                 className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
                 required
               />
@@ -100,6 +101,7 @@ export function GalleryAlbumPageClient({
                 placeholder="Caption (optional)"
                 value={addCaption}
                 onChange={(e) => setAddCaption(e.target.value)}
+                autoComplete="off"
                 className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
               />
               {error && <p className="text-red-500 text-xs">{error}</p>}

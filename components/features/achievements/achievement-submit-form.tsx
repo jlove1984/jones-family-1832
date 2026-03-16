@@ -71,6 +71,7 @@ export function AchievementSubmitForm({ onSuccess }: { onSuccess?: () => void })
         <label className="block text-sm font-medium mb-1">Title *</label>
         <input
           {...register('title')}
+          autoComplete="off"
           className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
         />
         {errors.title && <p className="text-red-500 text-xs mt-1">{errors.title.message}</p>}
@@ -79,6 +80,7 @@ export function AchievementSubmitForm({ onSuccess }: { onSuccess?: () => void })
         <label className="block text-sm font-medium mb-1">Category *</label>
         <select
           {...register('category')}
+          autoComplete="off"
           className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
         >
           {CATEGORIES.map((c) => (
@@ -91,6 +93,7 @@ export function AchievementSubmitForm({ onSuccess }: { onSuccess?: () => void })
         <input
           {...register('achievementDate')}
           type="date"
+          autoComplete="off"
           className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
         />
         {errors.achievementDate && <p className="text-red-500 text-xs mt-1">{errors.achievementDate.message}</p>}
@@ -100,6 +103,7 @@ export function AchievementSubmitForm({ onSuccess }: { onSuccess?: () => void })
         <textarea
           {...register('description')}
           rows={3}
+          autoComplete="off"
           className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
         />
       </div>
@@ -108,6 +112,7 @@ export function AchievementSubmitForm({ onSuccess }: { onSuccess?: () => void })
         <input
           {...register('photoUrl')}
           type="url"
+          autoComplete="url"
           className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
         />
         {errors.photoUrl && <p className="text-red-500 text-xs mt-1">{errors.photoUrl.message}</p>}

@@ -116,6 +116,7 @@ export function BirthdaysPageClient() {
               onChange={(e) => setWishMessage(e.target.value)}
               placeholder="Write a message…"
               rows={3}
+              autoComplete="off"
               className="w-full rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-2 text-sm"
               required
             />

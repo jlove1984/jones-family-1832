@@ -75,6 +75,7 @@ export function GalleryPageClient() {
                     placeholder="Album title"
                     value={createTitle}
                     onChange={(e) => setCreateTitle(e.target.value)}
+                    autoComplete="off"
                     className="rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-1.5 text-sm w-40"
                     required
                   />
@@ -85,6 +86,7 @@ export function GalleryPageClient() {
                     onChange={(e) => setCreateYear(e.target.value)}
                     min={1900}
                     max={2100}
+                    autoComplete="off"
                     className="rounded-md border border-light-gray dark:border-medium-gray bg-white dark:bg-dark-gray px-3 py-1.5 text-sm w-24"
                   />
                   <button type="submit" disabled={creating} className="rounded-md bg-heritage-green-DEFAULT dark:bg-heritage-green-light text-white px-3 py-1.5 text-sm disabled:opacity-50">
